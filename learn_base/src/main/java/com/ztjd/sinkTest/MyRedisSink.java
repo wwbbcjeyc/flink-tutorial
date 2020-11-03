@@ -1,0 +1,44 @@
+package com.ztjd.sinkTest;
+
+import org.apache.flink.api.java.tuple.Tuple3;
+import org.apache.flink.api.java.utils.ParameterTool;
+import org.apache.flink.configuration.Configuration;
+import org.apache.flink.streaming.api.functions.sink.RichSinkFunction;
+import redis.clients.jedis.Jedis;
+
+public class MyRedisSink extends RichSinkFunction<Tuple3<String, String, Integer>> {
+
+    private transient Jedis jedis;
+
+    @Override
+    public void open(Configuration parameters) throws Exception {
+        super.open(parameters);
+        ParameterTool parameter = (ParameterTool)getRuntimeContext().getExecutionConfig().getGlobalJobParameters();
+
+        String host = parameter.getRequired("redis.host");
+        String password = parameter.get("redis.password", "");
+        Integer port = parameter.getInt("redis.port", 6379);
+        Integer timeout = parameter.getInt("redis.timeout", 5000);
+        Integer db = parameter.getInt("redis.db", 0);
+        jedis = new Jedis(host, port, timeout);
+        jedis.auth(password);
+        jedis.select(db);
+
+    }
+
+    @Override
+    public void invoke(Tuple3<String, String, Integer> value, Context context) throws Exception {
+        if (!jedis.isConnected()) {
+            jedis.connect();
+        }
+        //保存
+        jedis.hset(value.f0, value.f1, String.valueOf(value.f2));
+    }
+
+
+    @Override
+    public void close() throws Exception {
+        super.close();
+        jedis.close();
+    }
+}
