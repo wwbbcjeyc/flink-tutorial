@@ -1,0 +1,4 @@
+{"id": 1580615,"key":"runoobkey"}
+{"age": 22,"sex":"男"}
+{"event_sn": "app_homepage_camp_click","flow_id":"16809"}
+{"event_sn": "cPagePicClick123","flow_id":"54703"}
