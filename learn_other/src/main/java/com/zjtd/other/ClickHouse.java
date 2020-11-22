@@ -15,7 +15,7 @@ public class ClickHouse {
     }
 
     public static void sqlProcess(String sql) {
-        String address = "jdbc:clickhouse://172.16.200.18:8123/default";
+        String address = "jdbc:clickhouse://127.0.0.1:8123/default";
         Connection connection = null;
         Statement statement = null;
         ResultSet results = null;
