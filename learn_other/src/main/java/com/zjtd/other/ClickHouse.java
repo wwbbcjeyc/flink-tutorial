@@ -10,18 +10,18 @@ public class ClickHouse {
     public static void main(String[] args) {
         //String createTable = "CREATE TABLE test (FlightDate Date,Year UInt16) ENGINE = MergeTree(FlightDate, (Year, FlightDate), 8192);";//查询数据库
         //String insert = "insert into test (FlightDate,Year) values('2020-06-05',2001);";//查看表
-        String select = "select count(*) count from summtt";//查询ontime数据量
+        String select = "select count(1)";//查询ontime数据量
         sqlProcess(select);
     }
 
     public static void sqlProcess(String sql) {
-        String address = "jdbc:clickhouse://172.16.200.18:8123/default";
+        String address = "jdbc:clickhouse://172.16.11.73:8123/default";
         Connection connection = null;
         Statement statement = null;
         ResultSet results = null;
         try {
             Class.forName("ru.yandex.clickhouse.ClickHouseDriver");
-            connection = DriverManager.getConnection(address);
+            connection = DriverManager.getConnection(address,"bigdata","1234567890");
             statement = connection.createStatement();
             results = statement.executeQuery(sql);
             ResultSetMetaData rsmd = results.getMetaData();
