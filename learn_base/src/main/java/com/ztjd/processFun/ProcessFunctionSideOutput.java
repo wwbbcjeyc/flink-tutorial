@@ -14,6 +14,7 @@ import org.apache.flink.util.OutputTag;
 import javax.annotation.Nullable;
 
 /**
+ * 水位高于 阈值 通过 侧输出流 告警
  * @author wangwenbo
  * @version 1.0
  * @date 2020/10/20 7:00 下午
@@ -60,6 +61,7 @@ public class ProcessFunctionSideOutput {
         // 2.使用 ctx.output(outputTag对象,放入侧输出流的数据)
         // 3.获取侧输出流 => DataStream.getSideOutput(outputTag对象)
         OutputTag<String> outputTag = new OutputTag<String>("vc alarm"){};
+
 
         SingleOutputStreamOperator<WaterSensor> processDS = sensorDS
                 .keyBy(data -> data.getId())

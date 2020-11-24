@@ -13,6 +13,7 @@ import org.apache.flink.util.Collector;
 import javax.annotation.Nullable;
 
 /**
+ * 连续5s水位上升进行告警
  * @author wangwenbo
  * @version 1.0
  * @date 2020/10/20 6:59 下午
