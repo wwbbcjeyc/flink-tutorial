@@ -1,6 +1,0 @@
-flink flume hadoop sqoop
-java maven spring scala
-flink flink spring java
-java hadoop sqoop flume
-flume spark spark spark
-docker flink flink
