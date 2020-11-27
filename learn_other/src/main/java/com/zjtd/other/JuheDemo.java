@@ -23,10 +23,6 @@ import java.util.Map;
  */
 
 
-/**
- *天气预报调用示例代码 － 聚合数据
- *在线接口文档：http://www.juhe.cn/docs/73
- **/
 
 public class JuheDemo {
     public static final String DEF_CHATSET = "UTF-8";
