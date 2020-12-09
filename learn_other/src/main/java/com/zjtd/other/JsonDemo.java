@@ -44,11 +44,12 @@ public class JsonDemo {
 
         String str1 = "{\"eventSn\":\"longArticlePageView\",\"sendingTime\":1600683367767,\"serverTime\":1600683363808,\"token\":\"dc9ccabf30b2e41e36b6fb855f2f95f4\",\"eventVariable\":{\"resourceId\":\"5218697\"},\"defaultVariable\":{\"report_method\":\"101\",\"app_version\":\"3.5.0\",\"os\":\"Android\",\"open_id\":\"oQYbCwH_HDD6AgwEVSTfbDKBJTZg\",\"os_version\":\"10\",\"triggerTime\":\"1600683367766\",\"title\":\"文章详情\",\"uuid\":\"074435dbb42a429d9f5af25f87a96ffe\",\"platform\":\"android\",\"manufacturer\":\"OnePlus\",\"partnerNo\":\"xiaobang\",\"domain\":\"com.xiaobang.fq\",\"sdk_version\":\"1.3.0\",\"model\":\"IN2020\",\"page\":\"/XbMainActivity/ArticleResourceActivity\",\"network_type\":\"wifi\",\"udid\":\"e54cb8a1-aad6-3fd7-9487-bac70741d0ea\",\"ip\":\"114.242.236.137\"}}\n";
         String str2="";
-        JSONObject str1Obj = JSON.parseObject(str2);
+        JSONObject str1Obj = JSON.parseObject(str1);
         System.out.println(str1Obj==null);
         System.out.println(str1Obj==null);
         System.out.println(StringUtils.isNotBlank(str1Obj.getString("name") )|| null==str1Obj.getString("name"));
 
+        System.out.println(str1Obj.getString("EVE"));
 
     }
 }

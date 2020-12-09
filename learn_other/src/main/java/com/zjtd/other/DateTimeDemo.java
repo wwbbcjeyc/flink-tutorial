@@ -63,7 +63,7 @@ public class DateTimeDemo {
         System.out.println(localDate1);*/
 
 
-       /* DateTimeFormatter dateTimeFormatter2 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        /*DateTimeFormatter dateTimeFormatter2 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         long milliseconds = LocalDateTime.now().toInstant(ZoneOffset.of("+8")).toEpochMilli();
 
         System.out.println(milliseconds);
@@ -82,16 +82,26 @@ public class DateTimeDemo {
         String sd = sdf.format(timeStamp);
         System.out.println(sd);*/
 
-        /*DateTimeFormatter strToDateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+       /* DateTimeFormatter strToDateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         TemporalAccessor dateTemporal = strToDateFormatter.parse("2017-01-01 13:00:00");
         LocalDate date = LocalDate.from(dateTemporal);
         System.out.println(date);
         LocalDateTime dateTime = LocalDateTime.parse("2017-01-01 13:00:00", strToDateFormatter);
         System.out.println(dateTime.toString());*/
 
-        DateTimeFormatter ftf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        //DateTimeFormatter ftf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
-        System.out.println(ftf.format(LocalDateTime.ofInstant(Instant.ofEpochMilli(1599189124891L), ZoneId.systemDefault())));
+        //System.out.println(ftf.format(LocalDateTime.ofInstant(Instant.ofEpochMilli(1599189124891L), ZoneId.systemDefault())));
+
+        /*DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDateTime time = LocalDateTime.now();
+        String localTime = df.format(time);
+        System.out.println(localTime);*/
+
+        DateTimeFormatter strToDateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        TemporalAccessor dateTemporal = strToDateFormatter.parse("2017-01-01 01:00:00");
+        LocalDate date = LocalDate.from(dateTemporal);
+        System.out.println(date);
 
 
     }
